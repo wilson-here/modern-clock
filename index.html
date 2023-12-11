@@ -10,6 +10,7 @@
       type="image/x-icon"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,13 +24,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      body {
-        font-family: "Courier Prime", monospace;
-      }
-    </style>
   </head>
-  <body class="bg-slate-200">
+  <body class="bg-gray-200">
     <main class="w-screen h-screen">
       <div
         class="max-w-md w-full mx-auto h-full flex items-center justify-center"
@@ -38,9 +34,12 @@
           class="w-full border-4 border-gray-900 rounded-lg h-80 flex items-center justify-center"
         >
           <div class="flex flex-col w-fit font-bold">
-            <div class="text-end text-gray-500">
-              <span class="zone"></span>
-              <i class="fa-regular fa-pen-to-square"></i>
+            <div
+              class="text-end text-gray-500 cursor-pointer hover:opacity-80 transition"
+              data-micromodal-trigger="modal-1"
+            >
+              <span class="zone"></span
+              ><i href="#" class="fa-regular fa-pen-to-square p-2"></i>
             </div>
             <time datetime="" class="currentTime text-end text-7xl"></time>
             <time datetime="" class="currentDate text-end"></time>
@@ -48,6 +47,33 @@
         </div>
       </div>
     </main>
+    <!-- SET TIMEZONE MODAL -->
+    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div
+          class="modal__container border-4 border-gray-900 bg-gray-200 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-1-title"
+        >
+          <header class="modal__header">
+            <h2 class="modal__title text-xl" id="modal-1-title">
+              Change Timezone
+            </h2>
+          </header>
+          <main class="modal__content mt-2 text-sm" id="modal-1-content">
+            <select
+              name="zone"
+              class="zoneSelect border-2 border-gray-900 min-w-[200px] p-1.5"
+            >
+              <option data-micromodal-close value="" disabled selected>
+                Pick a timezone
+              </option>
+            </select>
+          </main>
+        </div>
+      </div>
+    </div>
     <script src="./dist/main.js"></script>
   </body>
 </html>
